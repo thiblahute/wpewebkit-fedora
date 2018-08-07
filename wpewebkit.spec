@@ -54,8 +54,8 @@ BuildRequires:  libepoxy-devel
 
 %description
 WPE allows embedders to create simple and performant systems based on
-Web platform technologies. It is designed with hardware acceleration in
-mind, leveraging common 3D graphics APIs for best performance.
+Web platform technologies. It is designed with hardware acceleration
+in mind, leveraging common 3D graphics APIs for best performance.
 
 %package        devel
 Summary:        Development files for %{name}
