@@ -1,0 +1,24 @@
+diff -up wpewebkit-2.20.1/Source/WebKit/NetworkProcess/EntryPoint/unix/NetworkProcessMain.cpp.fedora-crypto-policy webkitgtk-2.17.92/Source/WebKit/NetworkProcess/EntryPoint/unix/NetworkProcessMain.cpp
+--- wpewebkit-2.20.1/Source/WebKit/NetworkProcess/EntryPoint/unix/NetworkProcessMain.cpp.fedora-crypto-policy	2017-09-05 13:39:59.294426661 +0200
++++ wpewebkit-2.20.1/Source/WebKit/NetworkProcess/EntryPoint/unix/NetworkProcessMain.cpp	2017-09-05 13:40:09.144389997 +0200
+@@ -43,7 +43,7 @@ int main(int argc, char** argv)
+     // overwrite this priority string if it's already set by the user.
+     // https://bugzilla.gnome.org/show_bug.cgi?id=738633
+     // WARNING: This needs to be KEPT IN SYNC with WebProcessMain.cpp.
+-    setenv("G_TLS_GNUTLS_PRIORITY", "NORMAL:%COMPAT:!VERS-SSL3.0:!ARCFOUR-128", 0);
++    setenv("G_TLS_GNUTLS_PRIORITY", "@SYSTEM:%COMPAT:!VERS-SSL3.0:!ARCFOUR-128", 0);
+ 
+ #if USE(GCRYPT)
+     PAL::GCrypt::initialize();
+diff -up wpewebkit-2.20.1/Source/WebKit/WebProcess/EntryPoint/unix/WebProcessMain.cpp.fedora-crypto-policy webkitgtk-2.17.92/Source/WebKit/WebProcess/EntryPoint/unix/WebProcessMain.cpp
+--- wpewebkit-2.20.1/Source/WebKit/WebProcess/EntryPoint/unix/WebProcessMain.cpp.fedora-crypto-policy	2017-09-05 13:40:28.558317735 +0200
++++ wpewebkit-2.20.1/Source/WebKit/WebProcess/EntryPoint/unix/WebProcessMain.cpp	2017-09-05 13:40:56.057215378 +0200
+@@ -43,7 +43,7 @@ int main(int argc, char** argv)
+     // overwrite this priority string if it's already set by the user.
+     // https://bugzilla.gnome.org/show_bug.cgi?id=738633
+     // WARNING: This needs to be KEPT IN SYNC with WebProcessMain.cpp.
+-    setenv("G_TLS_GNUTLS_PRIORITY", "NORMAL:%COMPAT:!VERS-SSL3.0:!ARCFOUR-128", 0);
++    setenv("G_TLS_GNUTLS_PRIORITY", "@SYSTEM:%COMPAT:!VERS-SSL3.0:!ARCFOUR-128", 0);
+ 
+ #if USE(GCRYPT)
+     PAL::GCrypt::initialize();

@@ -1,0 +1,20 @@
+From 494e4abb7a5130376d3cdb41a5e3963650b8659f Mon Sep 17 00:00:00 2001
+From: rpm-build <rpm-build>
+Date: Mon, 16 Jul 2018 06:34:53 +0200
+Subject: [PATCH] Fix the broken build due to python2
+
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/Source/WebInspectorUI/Scripts/copy-user-interface-resources.pl b/Source/WebInspectorUI/Scripts/copy-user-interface-resources.pl
+index 4bb7037d..3071b45f 100755
+--- a/Source/WebInspectorUI/Scripts/copy-user-interface-resources.pl
++++ b/Source/WebInspectorUI/Scripts/copy-user-interface-resources.pl
+@@ -155,7 +155,7 @@ my $inspectorLicense = <<'EOF';
+ EOF
+ 
+ my $perl = $^X;
+-my $python = ($OSNAME =~ /cygwin/) ? "/usr/bin/python" : "python";
++my $python = ($OSNAME =~ /cygwin/) ? "/usr/bin/python2" : "python2";
+ my $derivedSourcesDir = $ENV{'DERIVED_SOURCES_DIR'};
+ my $scriptsRoot = File::Spec->catdir($ENV{'SRCROOT'}, 'Scripts');
+ my $sharedScriptsRoot = File::Spec->catdir($ENV{'JAVASCRIPTCORE_PRIVATE_HEADERS_DIR'});
