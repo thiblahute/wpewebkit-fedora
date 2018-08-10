@@ -106,8 +106,6 @@ pushd %{_target_platform}
   -DPORT=WPE \
   -DCMAKE_BUILD_TYPE=Release \
   -DENABLE_MINIBROWSER=ON \
-  -DCMAKE_EXE_LINKER_FLAGS="${CMAKE_EXE_LINKER_FLAGS} -lrt" \
-  -DCMAKE_SHARED_LINKER_FLAGS="${CMAKE_SHARED_LINKER_FLAGS} -lrt" \
 %ifarch s390 aarch64
   -DUSE_LD_GOLD=OFF \
 %endif
