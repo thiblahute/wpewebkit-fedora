@@ -6,7 +6,7 @@
 cp -p %1 _license_files/$(echo '%1' | sed -e 's!/!.!g')
 
 Name:           wpewebkit
-Version:        2.21.2
+Version:        2.21.92
 Release:        1%{?dist}
 Summary:        A WebKit port optimized for low-end devices
 
@@ -23,7 +23,8 @@ Patch1:     python2.patch
 BuildRequires:  bison
 BuildRequires:  cairo-devel
 BuildRequires:  cmake
-BuildRequires:  wpebackend-devel
+BuildRequires:  libwpe-devel
+BuildRequires:  wpebackend-fdo-devel
 BuildRequires:  flex
 BuildRequires:  gcc-c++
 BuildRequires:  gnutls-devel
@@ -160,6 +161,9 @@ popd
 
 
 %changelog
+
+* Mon Sep 10 2018 Chris King <bunnyapocalypse@protonmail.org>
+- Soname bump and version update
 
 * Tue Jul 17 2018 Chris King <bunnyapocalypse@fedoraproject.org> - 2.21.2-1
 - Initial RPM package.
