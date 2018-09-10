@@ -162,7 +162,7 @@ popd
 
 %changelog
 
-* Mon Sep 10 2018 Chris King <bunnyapocalypse@protonmail.org>
+* Mon Sep 10 2018 Chris King <bunnyapocalypse@protonmail.org> - 2.21.92-1
 - Soname bump and version update
 
 * Tue Jul 17 2018 Chris King <bunnyapocalypse@fedoraproject.org> - 2.21.2-1
