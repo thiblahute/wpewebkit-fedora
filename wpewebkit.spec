@@ -42,6 +42,7 @@ BuildRequires:  libxslt-devel
 BuildRequires:  libwayland-client-devel
 BuildRequires:  libwayland-egl-devel
 BuildRequires:  libwayland-server-devel
+BuildRequires:  mesa-libgbm-devel
 BuildRequires:  wayland-protocols-devel
 BuildRequires:  mesa-libEGL-devel
 BuildRequires:  perl-File-Copy-Recursive
