@@ -18,7 +18,10 @@ Source0:        http://wpewebkit.org/releases/%{name}-%{version}.tar.xz
 Patch0:     fedora-crypto-policy.patch
 # Explicitly specify python2 over python to avoid build fails
 Patch1:     python2.patch
-
+#https://bugs.webkit.org/show_bug.cgi?id=189078
+Patch2:     webkit-jsc-use-ternary-operator.patch
+#https://bugs.webkit.org/show_bug.cgi?id=189556
+Patch3:     epoxy.patch
 
 BuildRequires:  bison
 BuildRequires:  cairo-devel
@@ -163,6 +166,8 @@ popd
 
 
 %changelog
+* Fri Sep 14 2018 Chris King <bunnyapocalypse@protonmail.org> - 2.21.92-1
+- Adding some patches to fix failing builds
 
 * Mon Sep 10 2018 Chris King <bunnyapocalypse@protonmail.org> - 2.21.92-1
 - Soname bump and version update
