@@ -168,6 +168,9 @@ popd
 
 
 %changelog
+* Fri Sep 21 2018 Chris King <bunnyapocalypse@protonmail.org> - 2.21.92-1
+- Adding another patch so the package properly installs
+
 * Fri Sep 14 2018 Chris King <bunnyapocalypse@protonmail.org> - 2.21.92-1
 - Adding some patches to fix failing builds
 
