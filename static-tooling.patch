@@ -1,0 +1,13 @@
+diff --git a/Tools/wpe/backends/CMakeLists.txt b/Tools/wpe/backends/CMakeLists.txt
+index 439e8e3f48f489dfb35116e6a5c90b654fa51bf9..f6a17084525390318e8ad5b63c7830ea1849c0ee 100644
+--- a/Tools/wpe/backends/CMakeLists.txt
++++ b/Tools/wpe/backends/CMakeLists.txt
+@@ -49,7 +49,7 @@ add_custom_command(
+     COMMAND ${WAYLAND_SCANNER} client-header ${WAYLAND_PROTOCOLS_DATADIR}/unstable/xdg-shell/xdg-shell-unstable-v6.xml ${DERIVED_SOURCES_WPETOOLINGBACKENDS_DIR}/xdg-shell-unstable-v6-client-protocol.h
+     VERBATIM)
+ 
+-add_library(WPEToolingBackends ${WPEToolingBackends_SOURCES})
++add_library(WPEToolingBackends STATIC ${WPEToolingBackends_SOURCES})
+ include_directories(${WPEToolingBackends_INCLUDE_DIRECTORIES})
+ include_directories(SYSTEM ${WPEToolingBackends_SYSTEM_INCLUDE_DIRECTORIES})
+ target_link_libraries(WPEToolingBackends ${WPEToolingBackends_LIBRARIES})

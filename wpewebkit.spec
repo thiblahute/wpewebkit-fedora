@@ -22,6 +22,8 @@ Patch1:     python2.patch
 Patch2:     webkit-jsc-use-ternary-operator.patch
 #https://bugs.webkit.org/show_bug.cgi?id=189556
 Patch3:     epoxy.patch
+#https://bugs.webkit.org/show_bug.cgi?id=189797
+Patch4:     static-tooling.patch
 
 BuildRequires:  bison
 BuildRequires:  cairo-devel
