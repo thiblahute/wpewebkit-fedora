@@ -7,7 +7,7 @@ cp -p %1 _license_files/$(echo '%1' | sed -e 's!/!.!g')
 
 Name:           wpewebkit
 Version:        2.21.92
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A WebKit port optimized for low-end devices
 
 License:        LGPLv2 and BSD
@@ -168,6 +168,9 @@ popd
 
 
 %changelog
+* Thu Jan 24 2019 Pete Walter <pwalter@fedoraproject.org> - 2.21.92-3
+- Rebuild for ICU 63
+
 * Fri Sep 21 2018 Chris King <bunnyapocalypse@protonmail.org> - 2.21.92-2
 - Adding another patch so the package properly installs
 
