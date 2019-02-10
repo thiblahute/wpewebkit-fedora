@@ -6,8 +6,8 @@
 cp -p %1 _license_files/$(echo '%1' | sed -e 's!/!.!g')
 
 Name:           wpewebkit
-Version:        2.21.92
-Release:        4%{?dist}
+Version:        2.22.4
+Release:        1%{?dist}
 Summary:        A WebKit port optimized for low-end devices
 
 License:        LGPLv2 and BSD
@@ -18,12 +18,7 @@ Source0:        http://wpewebkit.org/releases/%{name}-%{version}.tar.xz
 Patch0:     fedora-crypto-policy.patch
 # Explicitly specify python2 over python to avoid build fails
 Patch1:     python2.patch
-#https://bugs.webkit.org/show_bug.cgi?id=189078
-Patch2:     webkit-jsc-use-ternary-operator.patch
-#https://bugs.webkit.org/show_bug.cgi?id=189556
-Patch3:     epoxy.patch
-#https://bugs.webkit.org/show_bug.cgi?id=189797
-Patch4:     static-tooling.patch
+
 
 BuildRequires:  bison
 BuildRequires:  cairo-devel
@@ -168,6 +163,9 @@ popd
 
 
 %changelog
+* Sat Feb 09 2019 Chris King <bunnyapocalypse@protonmail.org> - 2.22.4-1
+- New version and removing patches that were upstreamed in this version
+
 * Sun Feb 03 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2.21.92-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
