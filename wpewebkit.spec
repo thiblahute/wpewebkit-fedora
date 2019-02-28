@@ -7,7 +7,7 @@ cp -p %1 _license_files/$(echo '%1' | sed -e 's!/!.!g')
 
 Name:           wpewebkit
 Version:        2.22.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A WebKit port optimized for low-end devices
 
 License:        LGPLv2 and BSD
@@ -39,10 +39,8 @@ BuildRequires:  libpng-devel
 BuildRequires:  libsoup-devel
 BuildRequires:  libwebp-devel
 BuildRequires:  libxslt-devel
-BuildRequires:  libwayland-client-devel
-BuildRequires:  libwayland-egl-devel
-BuildRequires:  libwayland-server-devel
 BuildRequires:  mesa-libgbm-devel
+BuildRequires:  wayland-devel
 BuildRequires:  wayland-protocols-devel
 BuildRequires:  mesa-libEGL-devel
 BuildRequires:  perl-File-Copy-Recursive
@@ -163,6 +161,9 @@ popd
 
 
 %changelog
+* Thu Feb 28 2019 Pete Walter <pwalter@fedoraproject.org> - 2.22.4-2
+- Update wayland deps
+
 * Sat Feb 09 2019 Chris King <bunnyapocalypse@protonmail.org> - 2.22.4-1
 - New version and removing patches that were upstreamed in this version
 
