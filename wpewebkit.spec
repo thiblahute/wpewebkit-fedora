@@ -6,7 +6,7 @@
 cp -p %1 _license_files/$(echo '%1' | sed -e 's!/!.!g')
 
 Name:           wpewebkit
-Version:        2.22.5
+Version:        2.24.0
 Release:        1%{?dist}
 Summary:        A WebKit port optimized for low-end devices
 
@@ -136,7 +136,6 @@ popd
 %add_to_license_files Source/WebCore/LICENSE-LGPL-2
 %add_to_license_files Source/WebCore/LICENSE-LGPL-2.1
 %add_to_license_files Source/WebInspectorUI/UserInterface/External/CodeMirror/LICENSE
-%add_to_license_files Source/WebInspectorUI/UserInterface/External/ESLint/LICENSE
 %add_to_license_files Source/WebInspectorUI/UserInterface/External/Esprima/LICENSE
 %add_to_license_files Source/WebInspectorUI/UserInterface/External/three.js/LICENSE
 %add_to_license_files Source/WTF/icu/LICENSE
@@ -145,10 +144,10 @@ popd
 
 %files
 %{_bindir}/WPEWebDriver
-%{_libdir}/libWPEWebKit-0.1.so.2
-%{_libdir}/libWPEWebKit-0.1.so.2.*
-%{_libexecdir}/wpe-webkit-0.1
-%{_libdir}/wpe-webkit-0.1
+%{_libdir}/libWPEWebKit-1.0.so.2
+%{_libdir}/libWPEWebKit-1.0.so.2.*
+%{_libexecdir}/wpe-webkit-1.0
+%{_libdir}/wpe-webkit-1.0
 %doc NEWS
 %license _license_files/*ThirdParty*
 %license _license_files/*WebCore*
@@ -157,16 +156,16 @@ popd
 %license _license_files/*JavaScriptCore*
 
 %files devel
-%{_includedir}/wpe-webkit-0.1
-%{_libdir}/libWPEWebKit-0.1.so
+%{_includedir}/wpe-webkit-1.0
+%{_libdir}/libWPEWebKit-1.0.so
 %{_libdir}/pkgconfig/*.pc
 
 
 %changelog
-* Tue Mar 19 2019 Chris King <bunnyapocalypse@protonmail.org> - 2.22.5-1
+* Wed Mar 27 2019 Chris King <bunnyapocalypse@protonmail.org> - 2.24.0-1
 - New version
 
-* Thu Feb 21 2019 Chris King <bunnyapocalypse@protonmail.org> - 2.23.90-1
+* Tue Mar 19 2019 Chris King <bunnyapocalypse@protonmail.org> - 2.22.5-1
 - New version
 
 * Sat Feb 09 2019 Chris King <bunnyapocalypse@protonmail.org> - 2.22.4-1
