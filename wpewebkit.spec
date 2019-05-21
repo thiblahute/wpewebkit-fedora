@@ -6,7 +6,7 @@
 cp -p %1 _license_files/$(echo '%1' | sed -e 's!/!.!g')
 
 Name:           wpewebkit
-Version:        2.24.1
+Version:        2.24.2
 Release:        1%{?dist}
 Summary:        A WebKit port optimized for low-end devices
 
@@ -162,6 +162,9 @@ popd
 
 
 %changelog
+* Mon May 20 2019 Chris King <bunnyapocalypse@protonmail.org> - 2.24.2-1
+- New version
+
 * Fri Apr 19 2019 Chris King <bunnyapocalypse@protonmail.org> - 2.24.1-1
 - New version
 
