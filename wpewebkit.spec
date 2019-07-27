@@ -7,7 +7,7 @@ cp -p %1 _license_files/$(echo '%1' | sed -e 's!/!.!g')
 
 Name:           wpewebkit
 Version:        2.24.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A WebKit port optimized for low-end devices
 
 License:        LGPLv2 and BSD
@@ -162,6 +162,9 @@ popd
 
 
 %changelog
+* Sat Jul 27 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2.24.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
 * Mon May 20 2019 Chris King <bunnyapocalypse@protonmail.org> - 2.24.2-1
 - New version
 
