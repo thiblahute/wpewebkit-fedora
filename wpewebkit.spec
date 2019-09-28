@@ -148,8 +148,8 @@ popd
 
 %files
 %{_bindir}/WPEWebDriver
-%{_libdir}/libWPEWebKit-1.0.so.2
-%{_libdir}/libWPEWebKit-1.0.so.2.*
+%{_libdir}/libWPEWebKit-1.0.so.3
+%{_libdir}/libWPEWebKit-1.0.so.3.*
 %{_libexecdir}/wpe-webkit-1.0
 %{_libdir}/wpe-webkit-1.0
 %doc NEWS
@@ -168,7 +168,7 @@ popd
 %changelog
 * Sat Sep 28 2019 Chris King <bunnyapocalypse@protonmail.org> - 2.26.1-1
 - New version, added atk/bubblewrap libs for build, removed crypto patch as its
-  no longer needed. 
+  no longer needed. Also, sobump.
 
 * Sat Jul 27 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2.24.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
