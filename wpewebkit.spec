@@ -6,18 +6,16 @@
 cp -p %1 _license_files/$(echo '%1' | sed -e 's!/!.!g')
 
 Name:           wpewebkit
-Version:        2.24.2
-Release:        2%{?dist}
+Version:        2.26.1
+Release:        1%{?dist}
 Summary:        A WebKit port optimized for low-end devices
 
 License:        LGPLv2 and BSD
 URL:            http://www.%{name}.org/
 Source0:        http://wpewebkit.org/releases/%{name}-%{version}.tar.xz
 
-# https://bugs.webkit.org/show_bug.cgi?id=158785
-Patch0:     fedora-crypto-policy.patch
 # Explicitly specify python2 over python to avoid build fails
-Patch1:     python2.patch
+Patch0:     python2.patch
 
 BuildRequires:  openjpeg2-devel
 BuildRequires:  bison
@@ -54,6 +52,12 @@ BuildRequires:  rubygems
 BuildRequires:  sqlite-devel
 BuildRequires:  woff2-devel
 BuildRequires:  libepoxy-devel
+BuildRequires:  atk-devel at-spi2-atk-devel
+BuildRequires: bubblewrap
+BuildRequires: libseccomp-devel
+BuildRequires: xdg-dbus-proxy
+Requires: atk 
+Requires: at-spi2-atk
 
 %description
 WPE allows embedders to create simple and performant systems based on
@@ -162,6 +166,10 @@ popd
 
 
 %changelog
+* Sat Sep 28 2019 Chris King <bunnyapocalypse@protonmail.org> - 2.26.1-1
+- New version, added atk/bubblewrap libs for build, removed crypto patch as its
+  no longer needed. 
+
 * Sat Jul 27 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2.24.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
