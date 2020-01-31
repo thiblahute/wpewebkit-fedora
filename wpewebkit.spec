@@ -7,7 +7,7 @@ cp -p %1 _license_files/$(echo '%1' | sed -e 's!/!.!g')
 
 Name:           wpewebkit
 Version:        2.26.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A WebKit port optimized for low-end devices
 
 License:        LGPLv2 and BSD
@@ -166,6 +166,9 @@ popd
 
 
 %changelog
+* Fri Jan 31 2020 Fedora Release Engineering <releng@fedoraproject.org> - 2.26.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
 * Sat Sep 28 2019 Chris King <bunnyapocalypse@protonmail.org> - 2.26.1-1
 - New version, added atk/bubblewrap libs for build, removed crypto patch as its
   no longer needed. Also, sobump.
