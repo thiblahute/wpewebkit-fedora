@@ -5,8 +5,10 @@
         mkdir -p _license_files ; \
 cp -p %1 _license_files/$(echo '%1' | sed -e 's!/!.!g')
 
+# seems to fail linking with gcc?  clang works though
+
 Name:           wpewebkit
-Version:        2.26.1
+Version:        2.30.3
 Release:        2%{?dist}
 Summary:        A WebKit port optimized for low-end devices
 
@@ -56,6 +58,7 @@ BuildRequires:  atk-devel at-spi2-atk-devel
 BuildRequires: bubblewrap
 BuildRequires: libseccomp-devel
 BuildRequires: xdg-dbus-proxy
+BuildRequires: libgcrypt-devel
 Requires: atk 
 Requires: at-spi2-atk
 
@@ -106,13 +109,12 @@ files for developing applications that use %{name}
 
 # Disable ld.gold on s390 as it does not have it.
 # Also for aarch64 as the support is in upstream, but not packaged in Fedora.
-# FIXME: Ideally the CMAKE_EXE_LINKER_FLAGS would not be necessary, but builds seem to be failing otherwise.
-mkdir -p %{_target_platform}
-pushd %{_target_platform}
 %cmake \
   -DPORT=WPE \
   -DCMAKE_BUILD_TYPE=Release \
   -DENABLE_MINIBROWSER=ON \
+  -DUSE_SYSTEMD=OFF \
+  -DENABLE_ACCESSIBILITY=OFF \
 %ifarch s390 aarch64
   -DUSE_LD_GOLD=OFF \
 %endif
@@ -120,22 +122,27 @@ pushd %{_target_platform}
   -DENABLE_JIT=OFF \
   -DUSE_SYSTEM_MALLOC=ON \
 %endif
-..
-popd
+  -GNinja
 
-%make_build -C %{_target_platform}
+%ninja_build -C %{_target_platform}
 
 %install
-%make_install -C %{_target_platform}
+%ninja_install -C %{_target_platform}
 
 # Finally, copy over and rename various files for %license inclusion
 %add_to_license_files Source/JavaScriptCore/COPYING.LIB
-%add_to_license_files Source/JavaScriptCore/icu/LICENSE
 %add_to_license_files Source/ThirdParty/ANGLE/LICENSE
 %add_to_license_files Source/ThirdParty/ANGLE/src/common/third_party/smhasher/LICENSE
+%add_to_license_files Source/ThirdParty/ANGLE/src/common/third_party/xxhash/LICENSE
+%add_to_license_files Source/ThirdParty/ANGLE/src/libANGLE/renderer/vulkan/shaders/src/third_party/ffx_spd/LICENSE
+%add_to_license_files Source/ThirdParty/ANGLE/src/tests/test_utils/third_party/LICENSE
 %add_to_license_files Source/ThirdParty/ANGLE/src/third_party/compiler/LICENSE
 %add_to_license_files Source/ThirdParty/ANGLE/src/third_party/libXNVCtrl/LICENSE
-%add_to_license_files Source/WebCore/icu/LICENSE
+%add_to_license_files Source/ThirdParty/ANGLE/src/third_party/volk/LICENSE.md
+%add_to_license_files Source/ThirdParty/ANGLE/tools/flex-bison/third_party/m4sugar/LICENSE
+%add_to_license_files Source/ThirdParty/ANGLE/tools/flex-bison/third_party/skeletons/LICENSE
+%add_to_license_files Source/ThirdParty/ANGLE/util/windows/third_party/StackWalker/LICENSE
+%add_to_license_files Source/ThirdParty/gtest/LICENSE
 %add_to_license_files Source/WebCore/LICENSE-APPLE
 %add_to_license_files Source/WebCore/LICENSE-LGPL-2
 %add_to_license_files Source/WebCore/LICENSE-LGPL-2.1
@@ -143,7 +150,6 @@ popd
 %add_to_license_files Source/WebInspectorUI/UserInterface/External/Esprima/LICENSE
 %add_to_license_files Source/WebInspectorUI/UserInterface/External/three.js/LICENSE
 %add_to_license_files Source/WTF/icu/LICENSE
-%add_to_license_files Source/WTF/wtf/dtoa/COPYING
 %add_to_license_files Source/WTF/wtf/dtoa/LICENSE
 
 %files
