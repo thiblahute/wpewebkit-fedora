@@ -8,7 +8,7 @@ cp -p %1 _license_files/$(echo '%1' | sed -e 's!/!.!g')
 # seems to fail linking with gcc?  clang works though
 
 Name:           wpewebkit
-Version:        2.30.3
+Version:        2.30.4
 Release:        2%{?dist}
 Summary:        A WebKit port optimized for low-end devices
 
@@ -59,7 +59,7 @@ BuildRequires: bubblewrap
 BuildRequires: libseccomp-devel
 BuildRequires: xdg-dbus-proxy
 BuildRequires: libgcrypt-devel
-Requires: atk 
+Requires: atk
 Requires: at-spi2-atk
 
 %description
@@ -74,6 +74,8 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 %description    devel
 The %{name}-devel package contains libraries, build data, and header
 files for developing applications that use %{name}
+
+%define _lto_cflags %{nil}
 
 %prep
 %autosetup -p1 -n wpewebkit-%{version}
