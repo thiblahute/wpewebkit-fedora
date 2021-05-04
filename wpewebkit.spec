@@ -8,7 +8,7 @@ cp -p %1 _license_files/$(echo '%1' | sed -e 's!/!.!g')
 # seems to fail linking with gcc?  clang works though
 
 Name:           wpewebkit
-Version:        2.30.4
+Version:        2.32.0
 Release:        2%{?dist}
 Summary:        A WebKit port optimized for low-end devices
 
@@ -174,6 +174,9 @@ files for developing applications that use %{name}
 
 
 %changelog
+* Fri May 4 2021 Thibault Saunier <tsaunier@igalia.com> - 2.32.0-1
+- New version
+
 * Fri Jan 31 2020 Fedora Release Engineering <releng@fedoraproject.org> - 2.26.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
