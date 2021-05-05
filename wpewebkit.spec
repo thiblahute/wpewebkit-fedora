@@ -13,8 +13,8 @@ Release:        2%{?dist}
 Summary:        A WebKit port optimized for low-end devices
 
 License:        LGPLv2 and BSD
-URL:            http://www.%{name}.org/
-Source0:        http://wpewebkit.org/releases/%{name}-%{version}.tar.xz
+URL:            https://www.%{name}.org/
+Source0:        https://wpewebkit.org/releases/%{name}-%{version}.tar.xz
 
 # Explicitly specify python2 over python to avoid build fails
 Patch0:     python2.patch
