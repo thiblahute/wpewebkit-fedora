@@ -19,6 +19,7 @@ Source0:        https://wpewebkit.org/releases/%{name}-%{version}.tar.xz
 # Explicitly specify python2 over python to avoid build fails
 Patch0:     python2.patch
 
+BuildRequires:  ninja-build
 BuildRequires:  openjpeg2-devel
 BuildRequires:  bison
 BuildRequires:  cairo-devel
@@ -51,6 +52,7 @@ BuildRequires:  perl-Switch
 BuildRequires:  python2
 BuildRequires:  ruby
 BuildRequires:  rubygems
+BuildRequires:  rubygem-json
 BuildRequires:  sqlite-devel
 BuildRequires:  woff2-devel
 BuildRequires:  libepoxy-devel
